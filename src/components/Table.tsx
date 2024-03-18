@@ -3,10 +3,23 @@ import { DataTable } from "./data-table";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { StarIcon } from "lucide-react";
+import { Button } from "./ui/button";
+import {
+  getCoreRowModel,
+  getPaginationRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 
 const Table = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +37,7 @@ const Table = () => {
 
     fetchData();
   }, []);
+
   if (loading) {
     return (
       <div className=" h-screen flex items-center justify-center">
@@ -32,8 +46,29 @@ const Table = () => {
     );
   }
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
+    <div className="">
+      
+      <div className="container mx-auto py-10">
+        <DataTable columns={columns} data={data} />
+      </div>
+      <div className="flex items-center justify-end space-x-2 py-4 mr-10">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
+      </div>
     </div>
   );
 };
