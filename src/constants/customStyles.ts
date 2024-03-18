@@ -43,7 +43,7 @@ export const customStyles = {
     };
   },
 
-  placeholder: (defaultStyles) => {
+  placeholder: (defaultStyles: any) => {
     return {
       ...defaultStyles,
       color: "#000",
