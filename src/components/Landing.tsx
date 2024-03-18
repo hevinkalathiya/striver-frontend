@@ -11,8 +11,6 @@ import { languageOptions } from "@/constants/languageOptions";
 import CodeEditorWindow from "./CodeEditorWindow";
 import { cn } from "@/lib/utils";
 import useKeyPress from "@/hooks/useKeyPress";
-import { Input } from "./ui/input";
-
 interface OutputDetailsType {
   status?: { id: number };
   token?: string;
