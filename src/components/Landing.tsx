@@ -1,11 +1,10 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
 import OutputDetails from "./OutputDetails";
-import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 import { languageOptions } from "@/constants/languageOptions";
 import CodeEditorWindow from "./CodeEditorWindow";
@@ -28,7 +27,6 @@ const Landing: React.FC = () => {
     null
   );
   const [processing, setProcessing] = useState<boolean | null>(null);
-  const [theme, setTheme] = useState("cobalt");
   const [language, setLanguage] = useState(languageOptions[0]);
   const [username, setUsername] = useState<string>("");
 
@@ -155,10 +153,6 @@ const Landing: React.FC = () => {
     }
   };
 
-  const handleThemeChange = (th: { value: SetStateAction<string> }) => {
-    setTheme(th.value);
-  };
-
   const showSuccessToast = (msg?: string) => {
     toast.success(msg || `Compiled Successfully!`, {
       position: "top-right",
@@ -201,9 +195,6 @@ const Landing: React.FC = () => {
           <LanguagesDropdown onSelectChange={onSelectChange} />
         </div>
         <div className="px-4 py-2">
-          <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
-        </div>
-        <div className="px-4 py-2">
           <input
             className="rounded-[8px] border-2 border-black px-4 h-full"
             onChange={(e) => setUsername(e.target.value)}
@@ -218,7 +209,6 @@ const Landing: React.FC = () => {
             code={code}
             onChange={onChange}
             language={language?.value}
-            theme={theme}
           />
         </div>
 
