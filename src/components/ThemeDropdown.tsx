@@ -1,9 +1,17 @@
-import React from "react";
 import Select from "react-select";
+// @ts-ignore
 import monacoThemes from "monaco-themes/themes/themelist";
 import { customStyles } from "../constants/customStyles";
 
-const ThemeDropdown = ({ handleThemeChange, theme }) => {
+const ThemeDropdown = ({
+  handleThemeChange,
+  theme,
+}: {
+  handleThemeChange: any;
+  theme: any;
+}) => {
+  console.log(monacoThemes);
+
   return (
     <Select
       placeholder={`Select Theme`}
