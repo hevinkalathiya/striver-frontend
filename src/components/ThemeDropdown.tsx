@@ -10,7 +10,6 @@ const ThemeDropdown = ({
   handleThemeChange: any;
   theme: any;
 }) => {
-  console.log(monacoThemes);
 
   return (
     <Select

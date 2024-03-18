@@ -1,4 +1,3 @@
-import React from "react";
 
 const OutputWindow = ({ outputDetails }: { outputDetails: any }) => {
   const getOutput = () => {

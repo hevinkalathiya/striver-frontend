@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -59,12 +59,6 @@ const Landing: React.FC = () => {
       }
     }
   };
-
-  console.log({
-    language_id: language.id,
-    source_code: btoa(code),
-    stdin: btoa(customInput),
-  });
 
   const handleCompile = () => {
     axios
@@ -161,9 +155,8 @@ const Landing: React.FC = () => {
     }
   };
 
-  const handleThemeChange = (th: string) => {
-    console.log("theme...", th);
-    setTheme(th);
+  const handleThemeChange = (th: { value: SetStateAction<string> }) => {
+    setTheme(th.value);
   };
 
   const showSuccessToast = (msg?: string) => {
