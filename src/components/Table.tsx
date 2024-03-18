@@ -46,12 +46,12 @@ const Table = () => {
     );
   }
   return (
-    <div className="">
-      
+    <div className="max-w-6xl mx-auto">
+
       <div className="container mx-auto py-10">
         <DataTable columns={columns} data={data} />
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4 mr-10">
+      <div className="flex items-center justify-end space-x-2 py-4 ">
         <Button
           variant="outline"
           size="sm"
