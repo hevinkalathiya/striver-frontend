@@ -10,6 +10,8 @@ import { languageOptions } from "@/constants/languageOptions";
 import CodeEditorWindow from "./CodeEditorWindow";
 import { cn } from "@/lib/utils";
 import useKeyPress from "@/hooks/useKeyPress";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 interface OutputDetailsType {
   status?: { id: number };
   token?: string;
@@ -191,16 +193,32 @@ const Landing: React.FC = () => {
       />
 
       <div className="flex flex-row ">
-        <div className="px-4 py-2">
-          <LanguagesDropdown onSelectChange={onSelectChange} />
-        </div>
-        <div className="px-4 py-2">
-          <input
-            className="rounded-[8px] border-2 border-black px-4 h-full"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            placeholder="@Striver"
-          />
+        <div className="flex items-center justify-between w-full border-b pb-2">
+          <div className="flex ">
+            <div className="px-4 py-2">
+              <LanguagesDropdown onSelectChange={onSelectChange} />
+            </div>{" "}
+            <div className="px-4 py-2">
+              <input
+                className="rounded-[8px] border-2 border-black px-4 h-full"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                placeholder="@Striver"
+              />
+            </div>
+          </div>
+          <div className="mr-5">
+            <Link to="/table">
+            <Button
+              className={cn(
+                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
+                !code ? "opacity-50" : ""
+              )}
+            >
+              Tabel
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="flex flex-row space-x-4 items-start px-4 py-4">
