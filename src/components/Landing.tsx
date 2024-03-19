@@ -16,8 +16,8 @@ interface OutputDetailsType {
   token?: string;
 }
 
-const javascriptDefault = `const target = 5;
-console.log(target);`;
+const javascriptDefault = `const age = 19;
+console.log(age);`;
 
 const Landing: React.FC = () => {
   const [code, setCode] = useState<string>(javascriptDefault);
