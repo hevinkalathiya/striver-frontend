@@ -40,7 +40,7 @@ export const Columns: ColumnDef<Table>[] = [
     cell: (row) => {
       return (
         <div className="">
-          <span className="bg-green-500/30 border font-semibold border-green-500 p-2 rounded-md">
+          <span className="truncate bg-green-500/30 border font-semibold border-green-500 p-2 rounded-md">
             {row.row.original.codeLanguage}
           </span>
         </div>
