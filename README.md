@@ -1,3 +1,8 @@
+## Live Demo
+
+- [Live Demo Frontend](https://striver-hire-me.vercel.app/)
+- [Live Demo Backend](https://striver-backend-1.onrender.com/api/code)
+
 ## Features
 
 - Use React as frontend framework
