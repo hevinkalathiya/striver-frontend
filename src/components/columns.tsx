@@ -12,7 +12,7 @@ export type Table = {
   createdAt: string;
 };
 
-export const columns: ColumnDef<Table>[] = [
+export const Columns: ColumnDef<Table>[] = [
   {
     accessorKey: "username",
     header: ({ column }) => {

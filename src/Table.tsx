@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { StarIcon } from "lucide-react";
 import { DataTable } from "./components/Data-table";
-import { columns } from "./components/Columns";
+import { Columns } from "./components/Columns";
 
 const Table = () => {
   const [data, setData] = useState([]);
@@ -35,7 +35,7 @@ const Table = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={Columns} data={data} />
       </div>
     </div>
   );
