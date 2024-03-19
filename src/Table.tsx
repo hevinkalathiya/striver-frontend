@@ -1,8 +1,65 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { StarIcon } from "lucide-react";
-import { DataTable } from "./components/Data-table";
-import { Columns } from "./components/Columns";
+import { ArrowUpDown, StarIcon } from "lucide-react";
+import { DataTable } from "./Data-table";
+import { Button } from "./components/ui/button";
+import { ColumnDef } from "@tanstack/react-table";
+
+export type Table = {
+  username: string;
+  code: string;
+  codeLanguage: string;
+  std: string;
+  createdAt: string;
+};
+
+export const Columns: ColumnDef<Table>[] = [
+  {
+    accessorKey: "username",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-0"
+        >
+          User Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "code",
+    header: "Code",
+  },
+  {
+    accessorKey: "codeLanguage",
+    header: "Code Language",
+  },
+  {
+    accessorKey: "std",
+    header: "Standard Input",
+  },
+  {
+    // cell: (row) => {
+    //   return new Date(row.row.original.createdAt);
+    // },
+    accessorKey: "createdAt",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-0"
+        >
+          Created At
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+];
 
 const Table = () => {
   const [data, setData] = useState([]);
