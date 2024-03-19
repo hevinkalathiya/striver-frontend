@@ -16,10 +16,8 @@ interface OutputDetailsType {
   token?: string;
 }
 
-const javascriptDefault = `
-const target = 5;
-console.log(target);
-`;
+const javascriptDefault = `const target = 5;
+console.log(target);`;
 
 const Landing: React.FC = () => {
   const [code, setCode] = useState<string>(javascriptDefault);
@@ -60,6 +58,15 @@ const Landing: React.FC = () => {
   };
 
   const handleCompile = () => {
+    if (!code) {
+      showErrorToast("Please enter the code to compile!");
+      return;
+    }
+    if (!username) {
+      showErrorToast("Please enter the username!");
+      return;
+    }
+
     axios
       .post("https://striver-backend-1.onrender.com/api/code", {
         username,
@@ -68,7 +75,6 @@ const Landing: React.FC = () => {
         std: customInput,
       })
       .then((response) => {
-        console.log("User data saved successfully:", response.data);
         showSuccessToast(`User data saved successfully!`);
       })
       .catch((error) => {
@@ -88,8 +94,8 @@ const Landing: React.FC = () => {
       headers: {
         "content-type": "application/json",
         "Content-Type": "application/json",
-        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
-        "X-RapidAPI-Key": "9a90edca60msh32c2c90181ae33cp17c2acjsn9c9bc7812445",
+        "X-RapidAPI-Host": import.meta.env.VITE_REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": import.meta.env.VITE_REACT_APP_RAPID_API_KEY,
       },
       data: formData,
     };
@@ -109,10 +115,7 @@ const Landing: React.FC = () => {
         if (status === 429) {
           console.log("too many requests", status);
 
-          showErrorToast(
-            `Quota of 100 requests exceeded for the Day! Please read the blog on freeCodeCamp to learn how to setup your own RAPID API Judge0!`,
-            10000
-          );
+          showErrorToast(`Quota of 100 requests exceeded for the Day!`, 10000);
         }
         setProcessing(false);
         console.log("catch block...", error);
@@ -122,11 +125,11 @@ const Landing: React.FC = () => {
   const checkStatus = async (token: string) => {
     const options = {
       method: "GET",
-      url: "https://judge0-ce.p.rapidapi.com/submissions" + "/" + token,
+      url: import.meta.env.VITE_REACT_APP_RAPID_API_URL + "/" + token,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
-        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
-        "X-RapidAPI-Key": "9a90edca60msh32c2c90181ae33cp17c2acjsn9c9bc7812445",
+        "X-RapidAPI-Host": import.meta.env.VITE_REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": import.meta.env.VITE_REACT_APP_RAPID_API_KEY,
       },
     };
     try {
@@ -203,6 +206,7 @@ const Landing: React.FC = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
                 placeholder="@Striver"
+                required
               />
             </div>
           </div>
@@ -244,7 +248,7 @@ const Landing: React.FC = () => {
                 !code ? "opacity-50" : ""
               )}
             >
-              {processing ? "Processing..." : "Compile and Execute"}
+              {processing ? "Processing..." : "Compile and Submit"}
             </button>
           </div>
           {outputDetails && <OutputDetails outputDetails={outputDetails} />}

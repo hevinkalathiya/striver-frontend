@@ -1,17 +1,17 @@
 import "./App.css";
 import Landing from "./components/Landing";
 import Table from "./Table";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="max-w-full mx-auto">
-      <Router>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/table" element={<Table />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
