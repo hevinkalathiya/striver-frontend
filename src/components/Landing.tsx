@@ -30,7 +30,6 @@ const Landing: React.FC = () => {
   const [username, setUsername] = useState<string>("");
 
   const onSelectChange = (sl: any) => {
-    console.log("selected Option...", sl);
     setLanguage(sl);
   };
 
