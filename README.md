@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+## Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Use React as frontend framework
+- Use NodeJS as backend framework
+- Use MySQL as database
+- Use Prisma as ORM
+- Use Tailwind CSS for frontend design
+- Use Axios for HTTP client
+- Use Express for backend framework
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Shadcn Ui](https://ui.shadcn.com/): Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.🤖
 
-## Expanding the ESLint configuration
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.🐊
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Axios](https://axios-http.com/docs/intro):Promise based HTTP client for the browser and node.js🦀
 
-- Configure the top-level `parserOptions` property like this:
+- [React](https://react.dev): A JavaScript library for building user interfaces. 🐬
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [NodeJS](https://nodejs.org/en/): Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.🐞
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Express](https://expressjs.com/): Fast, unopinionated, minimalist web framework for Node.js.🐍
+
+- [MySQL](https://aiven.io/mysql): The world's most popular open source database.🐘
+
+- [Prisma](https://www.prisma.io/): Prisma is a next-generation ORM that can be used to access databases directly with a type-safe API.🐙
