@@ -21,6 +21,8 @@ import {
 import React from "react";
 import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -51,9 +53,11 @@ export function DataTable<TData, TValue>({
     },
   });
 
+
+
   return (
     <div className="">
-      <div className="flex items-center py-4">
+      <div className="flex items-center justify-between py-4">
         <Input
           placeholder="Filter Username..."
           value={
@@ -64,6 +68,12 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
+        <Link to="/" className="">
+          <Button className="border " onClick={() => { }} variant="ghost">
+            <ArrowLeft className="h-6 w-6 pr-2" />
+            Go Back{" "}
+          </Button>
+        </Link>
       </div>
       <div className="rounded-md border">
         <Table>

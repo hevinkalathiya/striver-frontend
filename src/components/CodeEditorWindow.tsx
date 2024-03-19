@@ -18,8 +18,6 @@ const CodeEditorWindow = ({
     onChange("code", value);
   };
 
-
-
   return (
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
       <Editor
