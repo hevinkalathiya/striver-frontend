@@ -33,6 +33,10 @@ const Landing: React.FC = () => {
     setLanguage(sl);
   };
 
+  useEffect(() => {
+    showSuccessToast(`Please Wait for 50 - 60 second to start the server`);
+  }, []);
+
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
