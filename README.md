@@ -1,3 +1,5 @@
+### If you start for first time, please wait for 50-60 seconds to load the backend server.
+
 ## Live Demo
 
 - [Live Demo Frontend](https://striver-hire-me.vercel.app/)
