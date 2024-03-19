@@ -1,6 +1,6 @@
 import "./App.css";
 import Landing from "./components/Landing";
-import Table from "./components/Table";
+import Table from "./Table";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

@@ -1,25 +1,12 @@
-import { columns } from "./columns";
-import { DataTable } from "./data-table";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { StarIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import {
-  getCoreRowModel,
-  getPaginationRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { DataTable } from "./components/Data-table";
+import { columns } from "./components/Columns";
 
 const Table = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,27 +34,8 @@ const Table = () => {
   }
   return (
     <div className="max-w-6xl mx-auto">
-
       <div className="container mx-auto py-10">
         <DataTable columns={columns} data={data} />
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4 ">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
       </div>
     </div>
   );
